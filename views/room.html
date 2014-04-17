@@ -1,0 +1,69 @@
+<section id="room">
+    <header>
+        <h1>{{room.name}}</h1>
+        <p>{{room.description}}</p>
+    </header>
+    <section id="skeletons">
+        <ul>
+        {{#room.skeletons}}
+            <li>
+                <div class="guildcolor {{guild}}">
+                    {{>skeleton}}
+                </div>
+                <div class="listname">
+                    {{name}}
+                </div>
+            </li>
+        {{/room.skeletons}}
+        </ul>
+    </section>
+    <section id="map">
+        <table class="tiles">
+            {{#room.elements}}
+                <tr>
+                {{#.}}
+                    <td class="{{c}}" data-tile data-x="{{x}}" data-y="{{y}}" {{#block}}data-blocking="true"{{/block}}>
+                        {{#el}}
+                            {{#is_skeleton}}
+                                {{>skeleton}}
+                            {{/is_skeleton}}
+                            {{^is_skeleton}}
+                                {{>furniture}}
+                            {{/is_skeleton}}
+                        {{/el}}
+                        {{#count}}
+                            <div class="count">{{count}}</div>
+                        {{/count}}
+                    </td>
+                {{/.}}
+                </tr>
+            {{/room.elements}}
+        </table>
+    </section>
+    <section id="chat">
+        <section id="input">
+            <input type="text" id="talk-text" />
+            <input type="button" id="talk-send" />
+        </section>
+        <section id="messages">
+            <ul>
+                <li><span class="name miner">the bone bandit:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li><span class="name engineer">the bone bandit:</span> Sed molestie cursus tortor, quis rutrum erat porta in.</li>
+                <li><span class="name forester">the bone bandit:</span> Suspendisse potenti. Curabitur tempor erat ac dui pellentesque, sit amet suscipit dui scelerisque. Nunc id sagittis enim. Donec eu ultricies ligula. Suspendisse dapibus sodales turpis id semper.</li>
+                <li><span class="name miner">the bone bandit:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li><span class="name engineer">the bone bandit:</span> Sed molestie cursus tortor, quis rutrum erat porta in.</li>
+                <li><span class="name forester">the bone bandit:</span> Suspendisse potenti. Curabitur tempor erat ac dui pellentesque, sit amet suscipit dui scelerisque. Nunc id sagittis enim. Donec eu ultricies ligula. Suspendisse dapibus sodales turpis id semper.</li>
+                <li><span class="name miner">the bone bandit:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li><span class="name engineer">the bone bandit:</span> Sed molestie cursus tortor, quis rutrum erat porta in.</li>
+                <li><span class="name forester">the bone bandit:</span> Suspendisse potenti. Curabitur tempor erat ac dui pellentesque, sit amet suscipit dui scelerisque. Nunc id sagittis enim. Donec eu ultricies ligula. Suspendisse dapibus sodales turpis id semper.</li>
+                <li><span class="name miner">the bone bandit:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li><span class="name engineer">the bone bandit:</span> Sed molestie cursus tortor, quis rutrum erat porta in.</li>
+                <li><span class="name forester">the bone bandit:</span> Suspendisse potenti. Curabitur tempor erat ac dui pellentesque, sit amet suscipit dui scelerisque. Nunc id sagittis enim. Donec eu ultricies ligula. Suspendisse dapibus sodales turpis id semper.</li>
+                <li><span class="name miner">the bone bandit:</span> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                <li><span class="name engineer">the bone bandit:</span> Sed molestie cursus tortor, quis rutrum erat porta in.</li>
+                <li><span class="name forester">the bone bandit:</span> Suspendisse potenti. Curabitur tempor erat ac dui pellentesque, sit amet suscipit dui scelerisque. Nunc id sagittis enim. Donec eu ultricies ligula. Suspendisse dapibus sodales turpis id semper.</li>
+
+            </ul>
+        </section>
+    </section>
+</section>

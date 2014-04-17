@@ -1,0 +1,166 @@
+body {
+    font-family: 'Alegreya Sans SC', sans-serif;
+    margin: 0;
+    color: #ccc;
+    background-image: url('../img/tiles/background_tile_rock.png');
+    background-repeat: repeat;
+    background-color: #333;
+}
+input {
+    font-family: 'Alegreya Sans SC', sans-serif;
+}
+a {
+    color: #ccc;
+    text-decoration: none;
+}
+#header {
+    height: 44px;
+    margin-bottom: 1em;
+    text-align: center;
+    padding-bottom: 0.5em;
+    background-color: #666;
+    background-image: url('../img/tiles/background_tile_gravel.png');
+    background-repeat: repeat;
+}
+#header a {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ccc;
+}
+#map {
+    float: left;
+    margin-left: 254px;
+}
+#map table {
+    margin: auto;
+}
+#footer {
+    margin-top: 2em;
+    text-align: center;
+}
+#skeletons {
+    float: left;
+    position: absolute;
+    max-height: 384px;
+    overflow: auto;
+    width: 234px;
+}
+#skeletons .skeleton {
+    margin-top: 0;
+}
+#skeletons ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#skeletons ul li {
+    height: 48px;
+    margin: 0px;
+    margin-bottom: 0.5em;
+}
+#skeletons ul li .guildcolor {
+    height: 48px;
+    background: url(../img/tiles/oryx_16bit_fantasy_world_trans_48.png);
+    background-position: -1248px -1872px;
+    width: 48px;
+    float: left;
+    position: absolute;
+}
+#skeletons .guildcolor.engineer {
+    background-position: -1248px -1440px;
+}
+#skeletons .guildcolor.forester {
+    background-position: -1248px -1584px;
+}
+#skeletons .guildcolor.miner {
+    background-position: -1248px -1728px;
+}
+#skeletons ul li .listname {
+    float: left;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 1.25em;
+    margin-left: 54px;
+    margin-top: 0.5em;
+    font-size: 1.25em;
+    max-width: 150px;
+    text-shadow: 2px 2px black;
+}
+#skeletons .nametag {
+    display: none;
+}
+#room {
+    margin: 0 4em;
+}
+#room:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+#room header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+#room header p {
+    margin: 0;
+    font-size: 0.9em;
+}
+#room header {
+    margin-bottom: 2em;
+    text-align: center;
+    text-shadow: 2px 2px black;
+}
+#room #chat {
+    float: left;
+    width: 300px;
+    height: 384px;
+    margin-left: 1em;
+}
+#room #chat #input {
+    height: 48px;
+}
+#talk-text {
+    width: 252px;
+    height: 48px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+#talk-send {
+    width: 48px;
+    height: 48px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    float: left;
+}
+#room #chat #messages {
+    height: 336px;
+    overflow: auto;
+}
+#chat ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+#chat ul li {
+    padding: 0.25em;
+    font-size: 1em;
+    text-align: justify;
+    text-shadow: 2px 2px black;
+}
+#chat .name {
+    font-weight: bold;
+}
+#chat .name.miner {
+    color: #cf3232;
+}
+#chat .name.forester {
+    color: #296b29;
+}
+#chat .name.engineer {
+    color: #3860a8;
+}

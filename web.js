@@ -1,0 +1,70 @@
+var port = process.env.PORT || 5000;
+
+var express = require('express');
+var app = express();
+app.use(express.logger());
+app.use(express.json());
+app.use(express.urlencoded());
+app.use(express.cookieParser());
+app.use(express.session({ secret: 'gys98y7g87syfg87' }));
+
+var skeletons = require('./middleware/skeleton.js');
+var rooms = require('./middleware/room.js');
+
+app.locals.pubnub_key = process.env.PUBNUB_SUBSCRIBE_KEY;
+app.locals.pubnub_channel = process.env.PUBNUB_CHANNEL;
+app.locals.absolute_url = process.env.ABSOLUTE_URL;
+app.locals.absolute_url_https = process.env.ABSOLUTE_URL_HTTPS;
+
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+app.set('layout', 'layouts/layout');
+app.set('partials', {header: 'partials/header', footer: 'partials/footer', analytics: 'partials/analytics', share: 'partials/share', skeleton: 'partials/skeleton', furniture: 'partials/furniture'});
+app.enable('view cache');
+app.engine('html', require('hogan-express'));
+
+var HoganTemplateCompiler = require('hogan-template-compiler'),
+    templateDirectory = __dirname + "/views",
+    hoganTemplateCompiler = HoganTemplateCompiler({
+        partialsDirectory: templateDirectory + "/partials",
+        layoutsDirectory: templateDirectory + "/layouts",
+        sharedTemplatesTemplate: templateDirectory + "/sharedTemplates.html"
+    });
+
+app.get('/', function(request, response) {
+    response.render('home', {title: 'Home'});
+});
+
+app.get('/tiletest', function(request, response) {
+    response.render('tiletest', {title: 'TILE TEST'});
+});
+
+app.get("/templates.js",  function(req, res) {
+    res.contentType(".js");
+    res.send(hoganTemplateCompiler.getSharedTemplates());
+});
+
+app.use('/public', express.static(__dirname + '/public'));
+
+app.get('/robots.txt', function(req, res){
+    res.send(
+        "Sitemap: " + app.locals.absolute_url + "/sitemap.xml"
+    );
+});
+
+app.get('/sitemap.xml', function(req, res){
+    res.set('Content-Type', 'text/xml');
+    res.render('sitemap', {layout: 'layouts/sitemap'});
+});
+
+app.get('/favicon.ico', function(req,res) {
+    res.sendfile(__dirname + '/public/favicon.ico');
+});
+
+app.get('/room/:slug', rooms.bySlug, rooms.show);
+
+// Listen on port
+
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});

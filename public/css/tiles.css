@@ -1,0 +1,87 @@
+
+.tiles {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.tiles td {
+    margin:0;
+    padding:0;
+    width:48px;
+    height:48px;
+    background: url(../img/tiles/oryx_16bit_fantasy_world_trans_48.png);
+    background-position: -192px -576px;
+    border:none;
+    z-index: 10;
+}
+
+.furniture {
+    background: url(../img/tiles/oryx_16bit_fantasy_world_trans_48.png);
+    z-index: 20;
+    float: left;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    margin-top: -24px;
+}
+
+/* tiles */
+.tiles td.black {
+    background-position: -48px -816px;
+}
+.sandstone,.sandstone.f {
+    background-position: -192px -144px;
+}
+.sandstone.wall {
+    background-position: -48px -144px;
+}
+.sandstone.wall.e.w {
+    background-position: -576px -144px;
+}
+.sandstone.wall.n.s {
+    background-position: -720px -144px;
+}
+.sandstone.wall.w {
+    background-position: -528px -144px;
+}
+.sandstone.wall.e {
+    background-position: -624px -144px;
+}
+.sandstone.wall.n {
+    background-position: -672px -144px;
+}
+.sandstone.wall.s {
+    background-position: -768px -144px;
+}
+.sandstone.wall.e.s {
+    background-position: -816px -144px;
+}
+.sandstone.wall.w.s {
+    background-position: -864px -144px;
+}
+.sandstone.wall.n.e {
+    background-position: -912px -144px;
+}
+.sandstone.wall.n.w {
+    background-position: -960px -144px;
+}
+.sandstone.wall.broken.n.s {
+    background-position: -1248px -144px;
+}
+.sandstone.wall.broken.e.w {
+    background-position: -1296px -144px;
+}
+
+/* furniture */
+.door.open {
+    background-position: -1440px -144px;
+}
+.door,.door.closed {
+    background-position: -1392px -144px;
+}
+.torch {
+    background-position: -1968px -48px;
+}
+.bookcase {
+    background-position: -1488px -240px;
+}

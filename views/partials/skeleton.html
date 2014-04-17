@@ -1,0 +1,15 @@
+<div class="character skeleton" data-skeleton="{{id}}" data-name="{{name}}">
+    <div class="worn">
+        {{#worn}}
+        <div class="{{c}}"></div>
+        {{/worn}}
+    </div>
+    <div class="equipped">
+        {{#equipped}}
+        <div class="{{c}}"></div>
+        {{/equipped}}
+    </div>
+    {{#name}}
+    <div class="nametag">{{name}}</div>
+    {{/name}}
+</div>
